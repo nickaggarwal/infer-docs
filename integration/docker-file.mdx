@@ -1,0 +1,19 @@
+---
+title: "Docker"
+description: "Bring your own docker container images. ( This might have higher coldstarts )"
+---
+
+## For Docker File Integration
+
+You can provide a custom docker image to host your model on the inferless platform. Supported formats for custom docker images.
+
+
+### Requirements for Docker Import
+
+* These are details that are needed while importing the model from GITHUB or GITLAB  
+    * **Health check API**:- GET API - returns status 200 for a healthy state  
+    * **Infer API** \- POST API - Returns s Dict  
+    * **Server Port** \- The Port on which the model server is hosted  
+    * **Input - Sample** Json input for model inference  
+    * **Dockerfile** \- The file for building the Docker
+    
