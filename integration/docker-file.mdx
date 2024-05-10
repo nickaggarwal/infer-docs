@@ -5,15 +5,45 @@ description: "Bring your own docker container images. ( This might have higher c
 
 ## For Docker File Integration
 
-You can provide a custom docker image to host your model on the inferless platform. Supported formats for custom docker images.
-
+You can provide a dockerfile in a GitHub or Gitlab repository to host your model on the inferless platform. You need to run a webserver with the following APIs.
 
 ### Requirements for Docker Import
 
-* These are details that are needed while importing the model from GITHUB or GITLAB  
+These are details that are needed while importing the model from GITHUB or GITLAB that has a dockerfile.
+
     * **Health check API**:- GET API - returns status 200 for a healthy state  
     * **Infer API** \- POST API - Returns s Dict  
     * **Server Port** \- The Port on which the model server is hosted  
-    * **Input - Sample** Json input for model inference  
     * **Dockerfile** \- The file for building the Docker
+    * **Input - Sample** Json input for model inference  
     
+
+```json
+# Sample Input 
+{
+  "prompt":  "Once upon a time ", 
+  "max_length": 50
+}
+```
+
+### Example
+<Card icon = "github" href="https://github.com/inferless/inferless-docker-import-examples">
+GitHub - inferless/inferless-docker-import-examples GitHub
+</Card>
+
+### Importing the model via Dashbaord 
+
+1. Go to the [Inferless Dashboard](https://app.inferless.com) and click on the **Models** tab.
+2. Click on the **Add Model** button.
+3. Select the Provider with Dockerfile ** Github/GitLab**  
+4. Enter the **Repo URL** and **Branch**
+5. Enter the **Health Check API** and **Infer API**
+6. Enter the location of the **Dockerfile** in the repository and "Port" exposed in the dockerfile.
+8. Optionally you can validate the Infer API with a sample input.
+6. Select the machine configuration. 
+7. Optionally you can also mount volumes for the model.
+
+
+#### Video Walkthourgh
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
