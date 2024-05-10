@@ -1,0 +1,45 @@
+---
+title: "Docker Images"
+description: "Bring your own docker container images. ( This might have higher coldstarts )"
+---
+
+You can provide a custom docker image to host your model on the inferless platform. Supported formats for custom docker images.
+
+* Private Image URI
+
+#### For Private image URI
+
+* Docker Hub
+
+* Amazon Elastic Container Registry (ECR)
+
+
+An Inferless Platform can pull or build the image based on the format and host the model.
+
+
+### Requirements for Docker Import
+
+* The image should be created for the platform `linux/amd64`
+
+* These are details that are needed while importing the model from DockerHub or ECR  
+   * **Health check API**:- GET API - returns status 200 for a healthy state  
+   * **Infer API** \- POST API - returns s dict  
+   * **Server Port** \- The port on which the model server is running  
+   * **Input - Sample** Json input for model inference
+
+
+### Importing the model via Dashbaord 
+
+1. Go to the [Inferless Dashboard](https://app.inferless.com) and click on the **Models** tab.
+2. Click on the **Add Model** button.
+3. Select the Docker Image Provider ** Dockerhub/AWS ECR**  
+4. Enter the **Image URI** and **Port**
+5. Enter the **Health Check API** and **Infer API**
+6. Optionally you can validate the Infer API with a sample input.
+6. Select the machine configuration. 
+7. Optionally you can also mount volumes for the model.
+
+
+#### Video Walkthourgh
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

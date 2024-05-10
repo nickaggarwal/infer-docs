@@ -1,0 +1,44 @@
+---
+title: "File Import from Zip"
+description: "You can upload your model file directly from your system or from a public downloadable link."
+---
+
+### Preparing the repository 
+
+To import via file method you need to create a zip file with the following structure. 
+
+```bash
+./
+├── model.<extension>
+├── input.json
+├── output.json
+├── config.pbtxt ( Optional )
+```
+
+
+We have creted a sample ONNX model that you can use to test the inferless platform.
+
+File Link: [https://github.com/infer-less/template-method](https://github.com/infer-less/template-method)
+
+Once you have the zip file ready you can follow the below steps to import the model.
+
+
+### Steps to import model zip 
+
+1. Go to the [Inferless Dashboard](https://app.inferless.com) and click on the **Add Model** tab.
+2. Select the File Method option and click on the **Next** button.
+3. Upload the zip file or paste the URL to zip file that you have created 
+4. Select the name of the model. 
+5. Select the machine configuration. 
+6. Optionally you can configure custom runtime, by default will use inferless default runtime.
+7. Optionally you can also mount volumes for the model.
+
+
+#### Video Walkthourgh
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+####  Configure the Dynamic Batch Size 
+
+You can configure the dynamic batch size for the model by adding the following line in the config.pbtxt file. 
+
