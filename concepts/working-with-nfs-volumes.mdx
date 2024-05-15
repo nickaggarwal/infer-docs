@@ -1,0 +1,203 @@
+---
+title: "Working with NFS - My Volumes"
+---
+
+Inferless provides NFS-like writable volumes that support simultaneous connections to various replicas. Similar to networked file-sharing systems that enable collective access to files across a network, these volumes in Inferless address multiple needs:
+
+* Storing model parameters
+
+* Archiving datasets similar to centralized storage
+
+* Setting up a communal cache for collaborative tasks, akin to a shared cache over a network.
+
+If you want to access any weigths or dynamically load any files in your model you can use the volumes feature.
+
+Here are some example usage of volumes:
+
+
+
+## Method A: Manage Volumes using Inferless CLI
+
+Manage Inferless volumes 
+
+```console
+$ inferless volume COMMAND [OPTIONS] [ARGS]...
+```
+
+**Commands**:
+
+* `create`: Create a new volume.
+* `cp`: Add a file or directory to a volume.
+* `ls`: List files and directories within a volume.
+* `rm`: Specify the Inferless path to the file.
+* `list`: List all existing volumes.
+* `select`: Select a volume for the current Inferless configuration file.
+
+
+**Usage**:
+
+Create a new volume
+
+```console
+$ inferless volume create [OPTIONS]
+```
+
+**Options**:
+
+* `-n, --name TEXT`: Assign a name to the new volume.
+* `-r, --region TEXT`: specify the region where you want to create the runtime.
+
+
+**Examples**:
+```console
+$ inferless volume create -n my-volume -r region-1
+```
+
+List all the volumes 
+
+```console
+$ inferless volume list [OPTIONS]
+```
+
+**Options**:
+
+* `-r, --region TEXT`: specify the region where you want to create the runtime.
+
+
+**Examples**:
+```console
+$ inferless volume list -r region-1
+```
+
+Copy files to a volume 
+
+```console
+$ inferless volume cp [OPTIONS]
+```
+
+**Options**:
+
+* `-s, --source TEXT`: Specify the source path (either a local directory/file path or an Inferless path)
+* `-d, --destination TEXT`: Specify the destination path (either a local directory/file path or an Inferless path)
+* `-r, --recursive`: Recursively copy the contents of a directory to the destination.
+* `--help`: Show this message and exit.
+
+**Examples**:
+
+To copy from local to remote volume
+
+```console
+$ inferless volume cp -s /path/to/local/file -d infer://region/volume/path/file
+```
+
+To copy from remote to local volume
+
+```console
+$ inferless volume cp -s infer://region/volume/path/file -d /path/to/local/file
+```
+
+
+List files and directories within a volume
+
+```console
+$ inferless volume ls [OPTIONS]
+```
+
+**Options**:
+
+* `-i, --id TEXT`: Specify the ID of the volume to list.
+* `-p, --path TEXT`: Define a specific directory path within the volume. Defaults to the root directory if not specified.
+* `-d, --directory`: List only directories.
+* `-f, --files`: List only files.
+* `-r, --recursive`: Recursively list contents of directories.
+* `--help`: Show this message and exit.
+
+
+**Examples**:
+
+```console
+$ inferless volume ls -i volume-id -p /path/to/directory
+```
+
+Remove a file or directory from a volume
+
+```console
+$ inferless volume rm [OPTIONS]
+```
+
+**Options**:
+* `-p, --path TEXT`: Infer Path to the file/dir your want to delete
+
+**Examples**:
+
+```console
+$ inferless volume rm -p infer://region/volume/path/file
+```
+
+Upate the inferless.yaml configuration file with the volume
+
+**Usage**:
+
+```console
+$ inferless volume select [OPTIONS]
+```
+
+**Options**:
+
+* `-p, --path TEXT`: Path to the Inferless configuration file (typically inferless.yaml)
+* `-i, --id TEXT`: The ID of the volume to select.
+
+
+**Examples**:
+
+```console
+$ inferless volume select -p inferless.yaml -i volume-id
+```
+
+
+
+
+## Method B: Create a Volume using Inferless Platform
+
+Here is how you can create a volume Go to the My Volumes section in your console 
+
+![](/images/my-volume1.png)
+
+My Volumes 
+
+#### Step 1
+
+Click on the Create Volume button 
+
+![](/images/my-volume2.png)
+
+#### Step 2
+
+After this Volume is created and ready copy the Mount Path 
+
+![](/images/my-volume3.png)
+
+#### Step 3
+
+Use the mount path on your app.py code as shown below :
+
+![](/images/my-volume4.png)
+
+#### Step 4
+
+In the model import step select the Mount Volume to attach 
+
+![](/images/my-volume5.png)
+
+### View Volumes
+
+You can also browse the files in your volume by clicking on the Volume Card 
+
+
+![](/images/my-volume6.png)
+
+### Delete Volumes 
+
+To delete volumes make sure it's not attached to any Deployment, You can delete it form the My Volumes page 
+
+![](/images/my-volume7.png)
