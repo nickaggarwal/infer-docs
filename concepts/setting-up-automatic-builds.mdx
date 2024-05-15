@@ -1,0 +1,51 @@
+---
+title: "Automatic Build on Inferless"
+---
+
+With Inferless, you can automatically build your model from various sources like Github, Hugging Face, Docker, AWS S3 where you don't worry about pushing newer version of your model. Inferless will automatically build the model for you.
+
+There are 2 wasy to set up automatic builds on Inferless:
+
+1. **Automatic Build from Git Based Deployments**
+
+If you are using Github/Gitlab integration with Inferless, you can set up automatic builds by specifying the 'branch' checking the automatic build checkbox.
+
+
+2 **Automatic Build from via Webhooks**
+
+If you are using Hugging Face, Docker, AWS S3, GCP or any other source, you can set up automatic builds by setting up webhooks. 
+
+
+### Example of Automatic Build from Hugging Face 
+
+
+#### Step 1: Find the webhook URL for the model 
+
+
+In case you are doing this during Model Import, the API URL would be displayed during the model import in Step 4.
+
+![](/images/hugging-face1.png)
+
+In case you are doing this post-model import, you can view this under `Model page -> Settings -> Webhooks`
+
+![](/images/hugging-face2.png)
+
+* Enable the` Repo Update `option under `triggers`. Click "Create Webhook" to complete the process.
+
+* View the screenshot below for a sample completed "New Webhook" Page.
+
+
+#### Step 2: Setting up the webhook on Hugging Face
+
+
+* Go to the Hugging Face model page and click on the `Settings` tab.
+
+* Click on the `Webhooks` tab and click on the `Add Webhook` button.
+
+* Enter the webhook URL and click on the `Create Webhook` button.
+
+
+View the screenshot below for a sample completed "New Webhook" Page.
+
+
+![](/images/hugging-face3.png)
