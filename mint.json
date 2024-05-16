@@ -9,7 +9,7 @@
     },
     "topbarCtaButton": {
       "name": "Join Private Beta",
-      "url": "https://0ooatrmbp25.typeform.com/to/nzuhQtba"
+      "url": "https://c5oxnv6v8ga.typeform.com/inferless"
     },
     "anchors": [
       {
@@ -44,6 +44,10 @@
       {
         "name": "Changelog",
         "url": "changelog"
+      },
+      {
+        "name": "References",
+        "url": "references"
       }
   ],
     "navigation": [
@@ -168,7 +172,9 @@
         "pages": [
             "cookbook/serverless-logo-generator",         
             "cookbook/qna-serverless-pdf-application",         
-            "cookbook/serverless-voice-chatbot"         
+            "cookbook/serverless-voice-chatbot",
+            "cookbook/serverless-llama3-youtube-summarizer",
+            "cookbook/serverless-customer-service-bot"
         ]
       },
       {
@@ -253,8 +259,38 @@
             "how-to-guides/deploy-gemma-7b-using-vllm-on-inferless",
             "how-to-guides/deploy-stable-cascade-using-inferless",
             "how-to-guides/deploy-musicgen-melody-large",
-            "how-to-guides/deploy-llama-3-using-inferless"
-
+            "how-to-guides/how-to-finetune--and-inference-llama3",
+            "how-to-guides/deploy-llama-3-using-inferless",
+            "how-to-guides/deploy-tenyx-llama-3-using-inferless"
+        ]
+      },
+      {
+        "group": "References",
+        "pages": [
+            "references/overview",
+            {
+              "group": "CLI",
+            "pages": [
+                "references/cli/inferless-login",
+                "references/cli/inferless-token",
+                "references/cli/inferless-init",
+                "references/cli/inferless-run",
+                "references/cli/inferless-deploy",
+                "references/cli/inferless-model",
+                "references/cli/inferless-volume",
+                "references/cli/inferless-runtime",
+                "references/cli/inferless-export",
+                "references/cli/inferless-secrets",
+                "references/cli/inferless-workspace"
+                ]
+            },
+            {
+              "group": "API",
+            "pages": [
+                "references/api/inferless-input-schema",
+                "references/api/inferless-python"
+                ]
+            }
         ]
       }
 
